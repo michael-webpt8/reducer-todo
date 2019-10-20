@@ -1,13 +1,19 @@
 import React from 'react';
 import Todo from './Todo';
+import { initialTodos } from '../reducers/todo';
 
 function Todos(props) {
+  const { initialTodos } = props;
   return (
-    <>
-      {/* {props.todoList.map(item => {
-        return <Todo key={item.id} item={state} />;
-      })} */}
-    </>
+    <div>
+      <ul>
+        {initialTodos.map(todo => (
+          <li key={todo.id}>
+            <label>{todo.item}</label>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 export default Todos;
