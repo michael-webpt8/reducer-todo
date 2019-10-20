@@ -29,6 +29,12 @@ function App() {
 
   const ADD_TODO = task => dispatch({ type: 'ADD_TODO', payload: task });
 
+  const TOGGLE_COMPLETE = todo =>
+    dispatch({
+      type: todo.complete ? 'TODO_COMPLETE' : 'TODO_INCOMPLETE',
+      payload: todo
+    });
+
   const toggleComplete = id => {
     setTodoList(
       todoList.map(todo => {
@@ -50,7 +56,7 @@ function App() {
       <Todos
         initialTodos={initialTodos}
         state={state}
-        toggleComplete={toggleComplete}
+        TOGGLE_COMPLETE={TOGGLE_COMPLETE}
       />
     </div>
   );
