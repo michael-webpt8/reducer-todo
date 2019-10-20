@@ -8,7 +8,7 @@ export function reducer(state, action) {
   switch (action.type) {
     case 'ADD_TODO':
       return state.concat({
-        task: action.payload,
+        item: action.payload,
         id: Date.now(),
         completed: false
       });
@@ -20,6 +20,10 @@ export function reducer(state, action) {
           return todo;
         }
       });
+
+    case 'CLEAR_COMPLETED':
+      return state.filter(todo => todo.completed === true);
+
     // case 'CLEAR_COMPLETE':
     //     return {
     //         ...state,
