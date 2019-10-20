@@ -1,14 +1,19 @@
 import React from 'react';
-import Todo from './Todo';
+
 import { initialTodos } from '../reducers/todo';
 
 function Todos(props) {
-  const { initialTodos } = props;
+  const { initialTodos, toggleComplete, state } = props;
   return (
     <div>
       <ul>
-        {initialTodos.map(todo => (
+        {state.map(todo => (
           <li key={todo.id}>
+            <input
+              type='checkbox'
+              checked={todo.complete}
+              onChange={() => toggleComplete(todo.id)}
+            />
             <label>{todo.item}</label>
           </li>
         ))}
