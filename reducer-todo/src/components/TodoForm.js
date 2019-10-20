@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function TodoForm(props) {
-  const { createTodo } = props;
+  const { ADD_TODO } = props;
   const [todo, setTodo] = useState('');
 
   const handleChange = e => {
@@ -11,7 +11,7 @@ function TodoForm(props) {
   const submithandler = e => {
     e.preventDefault();
     if (todo) {
-      createTodo(todo);
+      ADD_TODO(todo);
     }
     console.log(todo);
     setTodo('');

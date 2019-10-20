@@ -27,7 +27,7 @@ function App() {
   const [todoList, setTodoList] = useState(initialTodos);
   const [state, dispatch] = useReducer(reducer, initialTodos);
 
-  const createTodo = task => dispatch({ type: 'ADD_TODO', payload: task });
+  const ADD_TODO = task => dispatch({ type: 'ADD_TODO', payload: task });
 
   const toggleComplete = id => {
     setTodoList(
@@ -41,13 +41,12 @@ function App() {
     );
   };
 
-  // const ADD_TODO = dispatch({ type: 'ADD_TODO', payload: todoList });
   console.log('List', todoList);
   console.log('reduce state', state);
   return (
     <div className='App'>
       <h1>Todo Reducer Style</h1>
-      <TodoForm createTodo={createTodo} />
+      <TodoForm ADD_TODO={ADD_TODO} />
       <Todos
         initialTodos={initialTodos}
         state={state}
