@@ -27,6 +27,7 @@ function TodoForm(props) {
         />
         <br />
         <button type='submit'>Add Todo</button>
+        <button type='button'>Clean Completed</button>
       </form>
     </>
   );
