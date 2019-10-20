@@ -1,31 +1,25 @@
 export const initialState = {
-  todos: [
-    {
-      item: 'Learn about reducers',
-      completed: false,
-      id: 3892987589
-    }
-  ]
+  task: 'new task',
+  id: Date.now(),
+  completed: false
 };
 
 export function reducer(state, action) {
   switch (action.type) {
     case 'ADD_TODO':
-      return {
-        ...state,
-        todos: [
-          {
-            item: action.payload,
-            completed: false,
-            id: Date.now()
-          }
-        ]
-      };
+      return state.concat({
+        task: action.payload,
+        id: Date.now(),
+        completed: false
+      });
     case 'TOGGLE_COMPLETE':
-      return {
-        ...state,
-        completed: !state.todos.completed
-      };
+      return state.map(todo => {
+        if (todo.id === action.id) {
+          return { ...todo, completed: !todo.completed };
+        } else {
+          return todo;
+        }
+      });
     // case 'CLEAR_COMPLETE':
     //     return {
     //         ...state,
