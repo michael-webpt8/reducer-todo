@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { initialTodos } from '../reducers/todo';
-
 function Todos(props) {
   const { toggleComplete, state } = props;
   return (
