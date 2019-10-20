@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Todos(props) {
-  const { toggleComplete, state } = props;
+  const { TOGGLE_COMPLETE, state } = props;
   return (
     <div>
       <ul>
@@ -10,9 +10,11 @@ function Todos(props) {
             <input
               type='checkbox'
               checked={todo.complete}
-              onChange={() => toggleComplete(todo.id)}
+              onChange={() => TOGGLE_COMPLETE(todo)}
             />
-            <label>{todo.item}</label>
+            <label className={`${todo.completed}` ? 'completed' : ''}>
+              {todo.item}
+            </label>
           </li>
         ))}
       </ul>
