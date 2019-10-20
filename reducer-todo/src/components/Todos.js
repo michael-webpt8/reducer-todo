@@ -3,7 +3,7 @@ import React from 'react';
 import { initialTodos } from '../reducers/todo';
 
 function Todos(props) {
-  const { initialTodos, toggleComplete, state } = props;
+  const { toggleComplete, state } = props;
   return (
     <div>
       <ul>
