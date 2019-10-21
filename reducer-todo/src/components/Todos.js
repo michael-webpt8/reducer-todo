@@ -2,6 +2,7 @@ import React from 'react';
 
 function Todos(props) {
   const { TOGGLE_COMPLETE, state } = props;
+
   return (
     <div>
       <ul>
@@ -12,7 +13,7 @@ function Todos(props) {
               checked={todo.complete}
               onChange={() => TOGGLE_COMPLETE(todo)}
             />
-            <label className={`${todo.completed}` ? 'completed' : ''}>
+            <label className={todo.completed ? 'completed' : null}>
               {todo.item}
             </label>
           </li>
