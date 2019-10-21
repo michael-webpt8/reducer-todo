@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function TodoForm(props) {
-  const { ADD_TODO } = props;
+  const { ADD_TODO, CLEAR_COMPLETED } = props;
   const [todo, setTodo] = useState('');
 
   const handleChange = e => {
@@ -10,9 +10,9 @@ function TodoForm(props) {
 
   const submithandler = e => {
     e.preventDefault();
-    if (todo) {
-      ADD_TODO(todo);
-    }
+
+    ADD_TODO(todo);
+
     console.log(todo);
     setTodo('');
   };
@@ -27,7 +27,9 @@ function TodoForm(props) {
         />
         <br />
         <button type='submit'>Add Todo</button>
-        <button type='button'>Clean Completed</button>
+        <button type='button' onClick={CLEAR_COMPLETED}>
+          Clear Completed
+        </button>
       </form>
     </>
   );
