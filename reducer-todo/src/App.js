@@ -24,35 +24,24 @@ function App() {
     }
   ];
 
-  const [todoList, setTodoList] = useState(initialTodos);
+  //   const [todoList, setTodoList] = useState(initialTodos);
   const [state, dispatch] = useReducer(reducer, initialTodos);
 
   const ADD_TODO = task => dispatch({ type: 'ADD_TODO', payload: task });
 
   const TOGGLE_COMPLETE = todo =>
-    dispatch({
-      type: todo.complete ? 'TODO_COMPLETE' : 'TODO_INCOMPLETE',
-      payload: todo
-    });
+    dispatch({ type: 'TOGGLE_COMPLETE', payload: todo.id });
 
-  const toggleComplete = id => {
-    setTodoList(
-      todoList.map(todo => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
-        } else {
-          return todo;
-        }
-      })
-    );
+  const CLEAR_COMPLETED = () => {
+    console.log('clear');
+    dispatch({ type: 'CLEAR_COMPLETED' });
   };
 
-  console.log('List', todoList);
   console.log('reduce state', state);
   return (
     <div className='App'>
       <h1>Todo Reducer Style</h1>
-      <TodoForm ADD_TODO={ADD_TODO} />
+      <TodoForm ADD_TODO={ADD_TODO} CLEAR_COMPLETED={CLEAR_COMPLETED} />
       <Todos
         initialTodos={initialTodos}
         state={state}
