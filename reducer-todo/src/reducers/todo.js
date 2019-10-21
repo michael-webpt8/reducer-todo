@@ -1,9 +1,3 @@
-// export const initialState = {
-//   task: 'new task',
-//   id: Date.now(),
-//   completed: false
-// };
-
 const initialTodos = [
   {
     id: 123456789,
